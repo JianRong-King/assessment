@@ -1,5 +1,12 @@
+import React from 'react';
+import Content from './Content';
+
 function App() {
-  return <div>{/* Complete the exercise here. */}</div>;
+  return (
+    <div>
+      <Content />
+    </div>
+  );
 }
 
 export default App;
