@@ -2,33 +2,54 @@ import React, { useEffect, useState } from 'react';
 
 export default function Content() {
   const [data, setData] = useState([]);
-  const [displayData, setDisplayData] = useState([]);
+
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+  const maxPages = Math.ceil(data.length / itemsPerPage);
+
+  const currentItems = data.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('/api/posts');
       const responseJson = await response.json();
-      //   console.log(responseJson.posts);
+
       return responseJson.posts;
     };
     fetchData().then((data) => setData(data));
   }, []);
 
-  useEffect(() => {
-    setDisplayData(data);
-  }, [data]); // when need to change the display data
-
   return (
     <div>
-      {displayData.map((item) => (
+      {currentItems.map((item) => (
         <ul key={item.id}>
-          <img src={item.author.avatar} />
+          <img alt="Author" src={item.author.avatar} />
           <li>{item.title}</li>
           <li>{item.author.name}</li>
           <li>{item.publishDate}</li>
           <li>{item.summary}</li>
         </ul>
       ))}
+
+      <button
+        onClick={() => {
+          setCurrentPage((prev) => prev - 1);
+        }}
+        disabled={currentPage === 1}
+      >
+        Previous Page
+      </button>
+      <button
+        onClick={() => {
+          setCurrentPage((prev) => prev + 1);
+        }}
+        disabled={currentPage === maxPages}
+      >
+        Next Page
+      </button>
     </div>
   );
 }
