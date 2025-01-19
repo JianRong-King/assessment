@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CategoryFilter from './util/CategoryFilter';
 import Button from './util/Button';
+import DisplayData from './util/DisplayData';
 
 export default function Content() {
   const [orignalData, setOrignalData] = useState([]);
@@ -76,15 +77,7 @@ export default function Content() {
         setUniqueCategory={setUniqueCategory}
       />
 
-      {currentItems.map((item) => (
-        <ul key={item.id}>
-          <img alt="Author" src={item.author.avatar} />
-          <li>{item.title}</li>
-          <li>{item.author.name}</li>
-          <li>{item.publishDate}</li>
-          <li>{item.summary}</li>
-        </ul>
-      ))}
+      <DisplayData currentItems={currentItems} />
 
       <Button
         setCurrentPage={setCurrentPage}
