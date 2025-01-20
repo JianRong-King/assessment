@@ -5,11 +5,11 @@ import DisplayData from './util/DisplayData';
 
 export default function Content() {
   const [orignalData, setOrignalData] = useState([]);
-  const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
   const [uniqueCategory, setUniqueCategory] = useState([]);
   const [currentData, setCurrentData] = useState([]);
+  const itemsPerPage = 4;
 
   const currentItems = currentData.slice(
     // mutating array items

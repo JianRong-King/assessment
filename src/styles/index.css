@@ -1,4 +1,8 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,3 +15,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+header {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#selectForm {
+  margin-left: 24px;
+}
+
+#selectForm label {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+#selectForm input[type='checkbox'] {
+  margin-right: 8px;
+}
+
+#displayItems {
+  border: 1px solid #000;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#displayItems ul {
+  list-style-type: none;
+  margin-bottom: 18px;
+}
+
+#displayItems li {
+  margin: 4px;
+}
+
+#postHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#postHeader img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+#postHeader li {
+  list-style: none;
+  margin-right: 10px;
+} */
