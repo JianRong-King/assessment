@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function DisplayData({ currentItems }) {
   return (
     <div className="rounded-lg overflow-hidden shadow-lg">
@@ -35,6 +37,8 @@ export default function DisplayData({ currentItems }) {
               <li className="text-gray-800 overflow-hidden text-ellipsis">
                 Post Summary: {item.summary}
               </li>
+
+              <Link to={`/posts/${item.id}`}>Details</Link>
             </ul>
           </div>
         ))}

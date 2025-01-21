@@ -21,5 +21,10 @@ createServer({
 
       return filteredPosts;
     });
+
+    this.get('/posts/:id', (schema, request) => {
+      const id = request.params.id;
+      return data.posts.find((post) => post.id === id);
+    });
   },
 });
