@@ -4,11 +4,9 @@ export default function CategoryFilter({ uniqueCategory, setUniqueCategory }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleCheckboxChange = (index) => {
-    const updatedCategories = [...uniqueCategory]; // Create a shallow copy of the array
-    updatedCategories[index] = {
-      ...updatedCategories[index], // Create a shallow copy of the specific object
-      selected: !updatedCategories[index].selected, // Toggle the `selected` property
-    };
+    const updatedCategories = uniqueCategory.map((category, i) =>
+      i === index ? { ...category, selected: !category.selected } : category
+    );
     setUniqueCategory(updatedCategories);
   };
 
